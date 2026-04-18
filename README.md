@@ -49,3 +49,15 @@ Essa técnica converte os pesos do modelo de ponto flutuante (float32) para inte
 
 O modelo atingiu alta acurácia em apenas 5 épocas de treinamento, demonstrando que a arquitetura CNN escolhida é eficiente para o problema de classificação de dígitos manuscritos. A otimização reduziu o modelo em aproximadamente 91%, tornando-o adequado para execução em dispositivos Edge.
 
+---
+
+## 5️⃣ Comentários Adicionais
+
+### Decisões técnicas
+- Foram utilizadas apenas 2 camadas Conv2D para manter o modelo simples e compatível com as restrições de Edge AI e do pipeline de CI
+- O `batch_size` de 64 foi escolhido para equilibrar velocidade de treinamento e uso de memória
+- A técnica Dynamic Range Quantization foi escolhida por não exigir dataset de calibração, simplificando o pipeline de otimização
+
+### Aprendizados
+- Entendi na prática o fluxo completo de Machine Learning: treinamento → salvamento → conversão → otimização
+- Aprendi como modelos podem ser drasticamente reduzidos em tamanho mantendo boa performance, o que é essencial para aplicações reais de Edge AI
