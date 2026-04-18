@@ -35,3 +35,17 @@ Foi utilizada a técnica de **Dynamic Range Quantization**, disponível no Tenso
 Essa técnica converte os pesos do modelo de ponto flutuante (float32) para inteiros de 8 bits (int8), reduzindo significativamente o tamanho do modelo sem a necessidade de um dataset de calibração.
 
 É a técnica mais indicada para aplicações de **Edge AI**, pois permite rodar modelos em dispositivos com pouca memória e processamento limitado, como microcontroladores e sistemas embarcados.
+
+---
+
+## 4️⃣ Resultados Obtidos
+
+| Métrica | Valor |
+|---|---|
+| Acurácia final no teste | 98,62% |
+| Tamanho do modelo original (.h5) | 1467,1 KB |
+| Tamanho do modelo otimizado (.tflite) | 128,2 KB |
+| Redução de tamanho | ~91% |
+
+O modelo atingiu alta acurácia em apenas 5 épocas de treinamento, demonstrando que a arquitetura CNN escolhida é eficiente para o problema de classificação de dígitos manuscritos. A otimização reduziu o modelo em aproximadamente 91%, tornando-o adequado para execução em dispositivos Edge.
+
