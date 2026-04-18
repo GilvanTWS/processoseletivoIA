@@ -15,3 +15,15 @@ A CNN implementada em `train_model.py` é composta pelas seguintes camadas:
 - **Flatten** → transforma a imagem em um vetor de números
 - **Dense (64 neurônios, ReLU)** → camada de decisão
 - **Dense (10 neurônios, Softmax)** → saída com a probabilidade para cada dígito (0 a 9)
+
+---
+
+## 2️⃣ Bibliotecas Utilizadas
+
+| Biblioteca | Versão | Uso |
+|---|---|---|
+| TensorFlow | 2.x | Treinamento e conversão do modelo |
+| Keras | integrado ao TensorFlow | Construção da CNN |
+| os | padrão Python | Verificação do tamanho dos arquivos |
+
+
