@@ -26,4 +26,12 @@ A CNN implementada em `train_model.py` é composta pelas seguintes camadas:
 | Keras | integrado ao TensorFlow | Construção da CNN |
 | os | padrão Python | Verificação do tamanho dos arquivos |
 
+---
 
+## 3️⃣ Técnica de Otimização do Modelo
+
+Foi utilizada a técnica de **Dynamic Range Quantization**, disponível no TensorFlow Lite.
+
+Essa técnica converte os pesos do modelo de ponto flutuante (float32) para inteiros de 8 bits (int8), reduzindo significativamente o tamanho do modelo sem a necessidade de um dataset de calibração.
+
+É a técnica mais indicada para aplicações de **Edge AI**, pois permite rodar modelos em dispositivos com pouca memória e processamento limitado, como microcontroladores e sistemas embarcados.
