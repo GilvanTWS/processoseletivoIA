@@ -37,7 +37,12 @@ model.compile(
 
 # 6. Treinando o modelo
 print("Treinando o modelo...")
-model.fit(x_train, y_train, epochs=5, batch_size=64, validation_split=0.1)
+history = model.fit(x_train, y_train, epochs=5, batch_size=64, validation_split=0.1)
+
+# 6.1 Exibindo métricas do treinamento por época
+print("\nResumo do treinamento:")
+for epoch in range(5):
+    print(f"  Época {epoch+1}: acc={history.history['accuracy'][epoch]:.4f} | val_acc={history.history['val_accuracy'][epoch]:.4f} | loss={history.history['loss'][epoch]:.4f}")
 
 # 7. Avaliando no conjunto de teste
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
