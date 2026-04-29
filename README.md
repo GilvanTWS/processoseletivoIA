@@ -62,8 +62,12 @@ O modelo com Dynamic Range Quantization apresentou maior redução de tamanho, s
 ### Decisões técnicas
 - Foram utilizadas apenas 2 camadas Conv2D para manter o modelo simples e compatível com as restrições de Edge AI e do pipeline de CI
 - O `batch_size` de 64 foi escolhido para equilibrar velocidade de treinamento e uso de memória
-- A técnica Dynamic Range Quantization foi escolhida por não exigir dataset de calibração, simplificando o pipeline de otimização
+- Foi adicionada uma camada `Dropout(0.3)` entre as camadas Dense para reduzir overfitting, o que melhorou a acurácia no teste de 98,74% para 99,01%
+- Foram aplicadas duas técnicas de otimização diferentes para demonstrar o trade-off entre tamanho e precisão:
+  - **Dynamic Range Quantization** → maior redução (91%), ideal para dispositivos com memória muito limitada
+  - **Float16 Quantization** → redução menor (83%), porém mantém maior precisão numérica
 
 ### Aprendizados
 - Entendi na prática o fluxo completo de Machine Learning: treinamento → salvamento → conversão → otimização
-- Aprendi como modelos podem ser drasticamente reduzidos em tamanho mantendo boa performance, o que é essencial para aplicações reais de Edge AI
+- Aprendi como técnicas de regularização como Dropout melhoram a generalização do modelo
+- Compreendi que diferentes técnicas de quantização oferecem trade-offs distintos entre tamanho e desempenho, e que a escolha depende do dispositivo alvo
