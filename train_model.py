@@ -25,6 +25,7 @@ model = models.Sequential([
 
     layers.Flatten(),
     layers.Dense(64, activation="relu"),
+    layers.Dropout(0.3),  # evita overfitting
     layers.Dense(10, activation="softmax")
 ])
 
