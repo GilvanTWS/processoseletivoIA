@@ -40,14 +40,20 @@ Essa técnica converte os pesos do modelo de ponto flutuante (float32) para inte
 
 ## 4️⃣ Resultados Obtidos
 
+### Treinamento
 | Métrica | Valor |
 |---|---|
-| Acurácia final no teste | 98,62% |
-| Tamanho do modelo original (.h5) | 1467,1 KB |
-| Tamanho do modelo otimizado (.tflite) | 128,2 KB |
-| Redução de tamanho | ~91% |
+| Acurácia final no teste | 99,01% |
+| Loss final no teste | 0,0308 |
 
-O modelo atingiu alta acurácia em apenas 5 épocas de treinamento, demonstrando que a arquitetura CNN escolhida é eficiente para o problema de classificação de dígitos manuscritos. A otimização reduziu o modelo em aproximadamente 91%, tornando-o adequado para execução em dispositivos Edge.
+### Otimização
+| Técnica | Tamanho | Redução |
+|---|---|---|
+| Modelo original (.h5) | 1468.2 KB | - |
+| Dynamic Range Quantization | 128.2 KB | ~91% |
+| Float16 Quantization | 243.7 KB | ~83% |
+
+O modelo com Dynamic Range Quantization apresentou maior redução de tamanho, sendo o mais indicado para dispositivos com memória muito limitada. O Float16 oferece um equilíbrio entre tamanho e precisão numérica, sendo mais adequado para dispositivos que suportam operações em ponto flutuante de 16 bits.
 
 ---
 
