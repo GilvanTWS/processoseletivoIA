@@ -42,6 +42,7 @@ model.fit(x_train, y_train, epochs=5, batch_size=64, validation_split=0.1)
 # 7. Avaliando no conjunto de teste
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
 print(f"\nAcurácia final no teste: {test_acc:.4f}")
+print(f"Loss final no teste:      {test_loss:.4f}")
 
 # 8. Salvando o modelo
 model.save("model.h5")
